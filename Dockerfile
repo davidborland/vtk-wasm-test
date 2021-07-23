@@ -19,5 +19,8 @@ RUN mkdir build && \
     ../src && \
   cmake --build .
 
+# Expose port
+EXPOSE ${PORT}
+
 # Run
-CMD cd build && python3 -m http.server 8000
+CMD cd build && python3 -m http.server ${PORT}

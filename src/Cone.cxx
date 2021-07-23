@@ -14,6 +14,7 @@
 #include "vtkNew.h"
 #include "vtkPolyData.h"
 #include "vtkPolyDataMapper.h"
+#include "vtkProperty.h"
 #include "vtkRenderer.h"
 #include "vtkSDL2OpenGLRenderWindow.h"
 #include "vtkSDL2RenderWindowInteractor.h"
@@ -45,13 +46,14 @@ int main(int argc, char* argv[])
 
   vtkNew<vtkActor> actor;
   actor->SetMapper(mapper);
+  actor->GetProperty()->SetColor(1.0, 1.0, 0.0);
 
   // Add the actors to the scene
   renderer->AddActor(actor);
 
   // Start rendering app
   renderer->SetBackground(0.2, 0.3, 0.4);
-  renderWindow->SetSize(300, 300);
+  renderWindow->SetSize(1028, 1028);
   renderWindow->Render();
 
   // Start event loop
